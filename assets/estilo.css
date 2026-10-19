@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap");
+
+:root {
+  --azul: #1D4E89;
+  --ambar: #E8A33D;
+  --texto: #2B2F36;
+  --texto-suave: #6B7684;
+  --fundo: #EEF1F5;
+  --borda: #DDE2E8;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.pagina { max-width: 1280px; margin: 0 auto; padding: 0 24px 40px; }
+
+/* Cabeçalho: faixa azul com os indicadores do ano */
+.cabecalho {
+  background: var(--azul);
+  color: white;
+  margin: 0 -24px 32px;
+  padding: 36px 24px 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.cabecalho h1 { margin: 0 0 6px; font-size: 2.2rem; font-weight: 700; line-height: 1.15; }
+.cabecalho p { margin: 0; max-width: 46ch; color: #C9D6E6; }
+
+.indicadores { display: flex; flex-wrap: wrap; gap: 32px; }
+.indicador { display: flex; flex-direction: column; border-left: 3px solid var(--ambar); padding-left: 12px; }
+.indicador .valor { font-size: 1.5rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.indicador .legenda { font-size: 0.9rem; color: #C9D6E6; }
+
+/* Seções e grade de cartões */
+.secao { margin-bottom: 36px; }
+.secao h2 { font-size: 1.35rem; font-weight: 700; margin: 0 0 14px; }
+
+.grade { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+
+.cartao {
+  background: white;
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  padding: 18px 20px;
+  min-width: 0;
+}
+.cartao.largo { grid-column: 1 / -1; }
+.cartao h3 { margin: 0 0 4px; font-size: 1.05rem; font-weight: 600; }
+.subtitulo { margin: 0 0 10px; color: var(--texto-suave); font-size: 0.92rem; }
+
+/* Filtros */
+.filtros-linha { display: flex; flex-wrap: wrap; gap: 16px; }
+.filtros-linha .filtro { flex: 1 1 220px; }
+.filtro { display: block; margin: 10px 0 8px; }
+.rotulo-filtro { display: block; font-size: 0.88rem; font-weight: 600; color: var(--texto-suave); margin-bottom: 4px; }
+.radio label { margin-right: 14px; cursor: pointer; }
+.radio input { margin-right: 5px; accent-color: var(--azul); }
+
+.rodape { color: var(--texto-suave); font-size: 0.85rem; padding-top: 8px; border-top: 1px solid var(--borda); }
+
+@media (max-width: 860px) {
+  .grade { grid-template-columns: 1fr; }
+  .cabecalho h1 { font-size: 1.8rem; }
+}
